@@ -38,12 +38,14 @@ def login (request):
 def get_candid(c):
     p = c.get_profile()
     return {
+      "id": c.pk,
+      "url": c.get_absolute_url(),
       "username": c.username,
-      "first_name": c.first_name,
-      "last_name": c.last_name,
+      "full_name": c.get_full_name(),
+      "answers_count": c.answers.count(),
       "bio": p.bio,
-      "url": p.url,
-      "avatar": p.avatar_url(),
+      "home_url": p.url,
+      "avatar_url": p.avatar_url(),
     }
 
 
@@ -52,13 +54,15 @@ def candidate_list(request):
     list candidates ordered by number of answers
     """
     candidates = candidate_group.user_set.all().annotate(num_answers=Count('answers')).order_by("-num_answers")
+    candidates_json = json.dumps(map(get_candid, candidates)),
     if request.GET.get('format', 'html') == 'json' or request.is_ajax():
         #response =  serializers.serialize("json", map(get_candid, candidates),
         #        ensure_ascii=False, indent=2, use_natural_keys=True)
-        return HttpResponse(json.dumps(map(get_candid, candidates)),
-                            mimetype="application/json")
+        return HttpResponse(candidates_json, mimetype="application/json")
     else:
-        return render(request, "user/candidate_list.html", {"candidates": candidates})
+        return render(request, "user/candidate_list.html", 
+                      {"candidates": candidates,
+                       "candidates_json": candidates_json})
 
 
 def user_detail(request, slug):

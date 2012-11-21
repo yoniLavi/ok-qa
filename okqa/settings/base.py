@@ -96,6 +96,7 @@ INSTALLED_APPS = (
     'storages',
     'gunicorn',
     'bootstrap_pagination',
+    'jstemplate',
     'okqa.qa',
     'okqa.user',
     'okqa.party',

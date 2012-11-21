@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-14 04:52+0200\n"
-"PO-Revision-Date: 2012-11-14 04:53+0200\n"
+"POT-Creation-Date: 2012-11-21 12:13+0200\n"
+"PO-Revision-Date: 2012-11-21 12:14+0200\n"
 "Last-Translator: Benny Daon <bennydaon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -180,7 +180,6 @@ msgid "votes"
 msgstr "שואלים"
 
 #: qa/templates/qa/_question.html:17
-#: user/templates/user/candidate_list.html:20
 msgid "answers"
 msgstr "תשובות"
 
@@ -275,7 +274,7 @@ msgid "Home"
 msgstr "בית"
 
 #: templates/base.html:24
-#: user/templates/user/candidate_list.html:6
+#: user/templates/user/candidate_list.html:10
 msgid "Candidates"
 msgstr "מועמדים"
 
@@ -355,7 +354,7 @@ msgid "Content is licensed CC-BY. Source code is freely available "
 msgstr "התכנים חופשיים לשימוש תחת רשיון CC-BY.  קוד המקור חופשי לשימוש"
 
 #: templates/base.html:110
-#: user/templates/user/candidate_list.html:44
+#: user/templates/user/candidate_list.html:24
 msgid "here"
 msgstr "כאן"
 
@@ -587,15 +586,15 @@ msgstr "זכר"
 msgid "Female"
 msgstr "נקבה"
 
-#: user/views.py:22
+#: user/views.py:24
 msgid "You are already logged in"
 msgstr "תודה, אתה כבר מחובר למערכת"
 
-#: user/views.py:34
+#: user/views.py:36
 msgid "You need to use POST to login"
 msgstr ""
 
-#: user/views.py:91
+#: user/views.py:115
 msgid "Sorry, this link has already been used"
 msgstr "מצטערים, הקישור אינו פעיל. אנא נסה להרשם שנית"
 
@@ -628,7 +627,11 @@ msgstr "גרווטאר"
 msgid "Update"
 msgstr "עדכן"
 
-#: user/templates/user/candidate_list.html:40
+#: user/templates/user/candidate_list.html:7
+msgid "Get another three"
+msgstr "החלף את המועמדים"
+
+#: user/templates/user/candidate_list.html:20
 msgid ""
 "\n"
 "      The Candidates biographies were given by the candidates themselvs and\n"

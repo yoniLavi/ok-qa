@@ -1,0 +1,25 @@
+    <div class="candidate-summary narrow" id="candidate-summary-{{id}}">
+        <div onclick="window.location.href='{{url}}'"
+        class="cp">
+            <div class="answers" title="">
+                <div class="mini-counts">
+                    {{ answers_count }}
+                </div>
+                <div>
+                    {{#_}}answers{{/_}}
+                </div>
+            </div>
+        </div>
+        <div class="avatar-container">
+          <a href="{{ url }}" title="{{ full_name }}"><img src="{{ avatar_url }}" width="42" height="42" class="avatar img-circle"></a>
+        </div>
+        <h3>
+            <a href="{{ url }}" class="candidate-hyperlink"
+              title="{{ username }}">{{ full_name }}</a>
+        </h3>
+        <h4><a href="{{home_url}}">{{home_url}}</a></h4>
+        <p class="bio">
+         {{ bio }}
+        </p>
+  </div>
+
