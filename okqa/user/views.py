@@ -1,3 +1,5 @@
+import json
+from django.core import serializers
 from django.http import HttpResponse, HttpResponseForbidden, HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Count
@@ -33,12 +35,30 @@ def login (request):
     else:
         return HttpResponseForbidden(_('You need to use POST to login'))
 
+def get_candid(c):
+    p = c.get_profile()
+    return {
+      "username": c.username,
+      "first_name": c.first_name,
+      "last_name": c.last_name,
+      "bio": p.bio,
+      "url": p.url,
+      "avatar": p.avatar_url(),
+    }
+
+
 def candidate_list(request):
     """
     list candidates ordered by number of answers
     """
     candidates = candidate_group.user_set.all().annotate(num_answers=Count('answers')).order_by("-num_answers")
-    return render(request, "user/candidate_list.html", {"candidates": candidates})
+    if request.GET.get('format', 'html') == 'json' or request.is_ajax():
+        #response =  serializers.serialize("json", map(get_candid, candidates),
+        #        ensure_ascii=False, indent=2, use_natural_keys=True)
+        return HttpResponse(json.dumps(map(get_candid, candidates)),
+                            mimetype="application/json")
+    else:
+        return render(request, "user/candidate_list.html", {"candidates": candidates})
 
 
 def user_detail(request, slug):
