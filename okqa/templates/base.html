@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css"/>
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/auth-buttons.css"/>
     <title>
-      {% block pageTitle %} {% endblock %} {{ party.site.name }}
+      {% block pageTitle %} {% endblock %} המרוץ לקלפי
     </title>
     {% block extrahead %}{% endblock %}
 </head>
@@ -18,12 +18,7 @@
     <div class="container">
       <div id="party-logo" class="brand">
         <a href="{% url 'home' %}">
-          {% if party %}
-            <img src="{{ STATIC_URL }}{{ party.logo }}" title="{{party.site.name}}">
-          {% else %}
-            <img src="{{ STATIC_URL }}{{ party.logo }}" title="{{ STATIC_URL }}img/logo.png">
-          {% endif %}
-
+          <img src="{{ STATIC_URL }}img/logo.png" title="המרוץ לקלפי">
         </a>
       </div>
       <ul class="nav">
