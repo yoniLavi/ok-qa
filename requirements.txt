@@ -18,7 +18,7 @@ PIL==1.1.7
 psycopg2==2.4.5
 pyelasticsearch==0.2
 PyYAML==3.10
-requests==0.14.1
+requests==2.20.0
 South==0.7.6
 unicode-slugify==0.1
 Unipath==0.2.1
